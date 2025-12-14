@@ -233,8 +233,7 @@ public class ArrayTabulatedFunction implements TabulatedFunction, Serializable, 
         if (o instanceof ArrayTabulatedFunction) {
             ArrayTabulatedFunction arrThat = (ArrayTabulatedFunction) o;
             for (int i = 0; i < len; i++) {
-                if (Double.compare(funct[i].getX(), arrThat.funct[i].getX()) != 0 ||
-                    Double.compare(funct[i].getY(), arrThat.funct[i].getY()) != 0) {
+                if (!funct[i].equals(arrThat.funct[i])) {
                     return false;
                 }
             }
@@ -242,8 +241,7 @@ public class ArrayTabulatedFunction implements TabulatedFunction, Serializable, 
             // Общий случай для других реализаций TabulatedFunction
             for (int i = 0; i < len; i++) {
                 FunctionPoint thatPoint = that.getPoint(i);
-                if (Double.compare(funct[i].getX(), thatPoint.getX()) != 0 ||
-                    Double.compare(funct[i].getY(), thatPoint.getY()) != 0) {
+                if (!funct[i].equals(thatPoint)) {
                     return false;
                 }
             }

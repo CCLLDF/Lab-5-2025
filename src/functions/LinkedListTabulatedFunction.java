@@ -448,8 +448,7 @@ public class LinkedListTabulatedFunction implements TabulatedFunction, Externali
             FunctionNode currentThat = listThat.head.next;
             
             while (currentThis != head && currentThat != listThat.head) {
-                if (Double.compare(currentThis.value.getX(), currentThat.value.getX()) != 0 ||
-                    Double.compare(currentThis.value.getY(), currentThat.value.getY()) != 0) {
+                if (!currentThis.value.equals(currentThat.value)) {
                     return false;
                 }
                 currentThis = currentThis.next;
@@ -461,8 +460,7 @@ public class LinkedListTabulatedFunction implements TabulatedFunction, Externali
             int index = 0;
             while (current != head) {
                 FunctionPoint thatPoint = that.getPoint(index);
-                if (Double.compare(current.value.getX(), thatPoint.getX()) != 0 ||
-                    Double.compare(current.value.getY(), thatPoint.getY()) != 0) {
+                if (!current.value.equals(thatPoint)) {
                     return false;
                 }
                 current = current.next;
